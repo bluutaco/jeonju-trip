@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>공주·전주 커플 여행 가이드 · 2026.07.27–30</title>
+<style>
+  :root{
+    --bg:#fbf7f1; --card:#ffffff; --ink:#2c2420; --sub:#7a6f66;
+    --line:#ece3d8; --accent:#c2563b; --accent2:#1f7a8c;
+    --gold:#c79a3b; --green:#5a7d52; --soft:#f5eee3;
+    --shadow:0 6px 22px rgba(80,55,30,.10);
+    --r:18px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;font-size:15px;padding-bottom:80px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:520px;margin:0 auto;padding:0 14px}
+
+  /* HERO */
+  .hero{position:relative;border-radius:0 0 28px 28px;overflow:hidden;
+    background:linear-gradient(150deg,#c2563b 0%,#a8412f 38%,#1f7a8c 100%);
+    color:#fff;padding:30px 20px 26px;box-shadow:var(--shadow)}
+  .hero::after{content:"";position:absolute;inset:0;opacity:.13;
+    background:radial-gradient(circle at 80% 10%,#fff 0,transparent 38%),
+    radial-gradient(circle at 12% 88%,#fff 0,transparent 36%)}
+  .hero .eyebrow{font-size:12px;letter-spacing:3px;opacity:.9;font-weight:700}
+  .hero h1{margin:8px 0 4px;font-size:27px;line-height:1.25;font-weight:800}
+  .hero .dates{font-size:15px;opacity:.95;margin-top:6px}
+  .hero .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}
+  .chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:600;backdrop-filter:blur(3px)}
+
+  /* DAY TAB NAV (sticky) */
+  .tabs{position:sticky;top:0;z-index:50;background:rgba(251,247,241,.96);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:8px 0;margin-top:14px}
+  .tabs-inner{display:flex;gap:6px;overflow-x:auto;padding:0 14px;scrollbar-width:none}
+  .tabs-inner::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;padding:7px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);
+    font-size:13px;font-weight:700;color:var(--sub);cursor:pointer;transition:.15s}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  section{margin:22px 0}
+  .sec-h{display:flex;align-items:center;gap:9px;margin:0 0 12px}
+  .sec-h .ic{width:30px;height:30px;border-radius:9px;background:var(--soft);
+    display:grid;place-items:center;font-size:16px}
+  .sec-h h2{margin:0;font-size:19px;font-weight:800}
+  .sec-h .desc{font-size:12px;color:var(--sub);font-weight:600}
+
+  /* notice */
+  .notice{background:#fff6ed;border:1px solid #f3d9bf;border-left:4px solid var(--accent);
+    border-radius:14px;padding:13px 15px;margin:14px 0}
+  .notice b{color:var(--accent)}
+  .notice ul{margin:8px 0 0;padding-left:18px}
+  .notice li{margin:5px 0;font-size:13.5px}
+
+  /* summary route */
+  .route{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:16px;box-shadow:var(--shadow)}
+  .route .leg{display:flex;align-items:flex-start;gap:12px;position:relative;padding-bottom:16px}
+  .route .leg:last-child{padding-bottom:0}
+  .route .leg:not(:last-child)::before{content:"";position:absolute;left:13px;top:28px;bottom:-4px;
+    width:2px;background:linear-gradient(var(--accent),var(--accent2))}
+  .dot{flex:0 0 28px;height:28px;border-radius:50%;display:grid;place-items:center;
+    color:#fff;font-weight:800;font-size:12px;background:var(--accent);z-index:1}
+  .dot.b{background:var(--accent2)}
+  .leg .t{font-weight:800;font-size:15px}
+  .leg .s{font-size:12.5px;color:var(--sub)}
+  .leg .drive{display:inline-block;margin-top:4px;font-size:11.5px;color:var(--accent2);
+    background:#e8f3f5;padding:2px 8px;border-radius:999px;font-weight:700}
+
+  /* timeline */
+  .tl{position:relative;margin-left:6px}
+  .tl-item{display:flex;gap:12px;padding-bottom:14px;position:relative}
+  .tl-item:not(:last-child)::before{content:"";position:absolute;left:33px;top:24px;bottom:-2px;
+    width:2px;background:var(--line)}
+  .time{flex:0 0 56px;text-align:right;font-weight:800;font-size:13px;color:var(--accent);padding-top:2px}
+  .node{flex:0 0 12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--accent);
+    margin-top:5px;z-index:1}
+
+  /* cards */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:14px;box-shadow:var(--shadow);margin-bottom:12px;flex:1;min-width:0}
+  .card-img{width:100%;height:175px;object-fit:cover;border-radius:12px;margin:-2px 0 10px;background:var(--soft);display:block}
+  .hero-banner{width:100%;height:185px;object-fit:cover;border-radius:18px;margin:14px 0 4px;box-shadow:var(--shadow);display:block}
+  .card h3{margin:0 0 3px;font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .card .cat{font-size:11px;font-weight:700;color:#fff;background:var(--accent2);
+    padding:2px 8px;border-radius:999px}
+  .card .cat.eat{background:var(--accent)} .card .cat.cafe{background:#9a6b4a}
+  .card .cat.see{background:var(--green)} .card .cat.photo{background:#8a6fb0}
+  .card .cat.stay{background:var(--gold)}
+  .card .blurb{font-size:13px;color:var(--sub);margin:5px 0 9px}
+  .meta{display:flex;flex-direction:column;gap:5px;font-size:12.5px;margin:8px 0}
+  .meta div{display:flex;gap:7px;align-items:flex-start}
+  .meta .k{flex:0 0 52px;color:var(--sub);font-weight:700}
+  .meta .v{flex:1}
+  .menu-tag{display:inline-block;background:var(--soft);border:1px solid var(--line);
+    padding:2px 8px;border-radius:8px;font-size:11.5px;margin:2px 3px 0 0;font-weight:600}
+  .btns{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .btn{flex:1;min-width:72px;text-align:center;padding:8px 6px;border-radius:10px;font-size:12.5px;
+    font-weight:700;border:1px solid var(--line);background:#fff;cursor:pointer;transition:.12s}
+  .btn:active{transform:scale(.97)}
+  .btn.map{background:#eaf4f6;border-color:#cfe6ea;color:#15616d}
+  .btn.copy{background:#fbeee8;border-color:#f3d3c5;color:#a8412f}
+  .btn.pic{background:#f1ecf6;border-color:#ddd0ec;color:#6a4f95}
+
+  /* budget */
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:var(--shadow);font-size:13.5px}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{background:var(--soft);font-weight:800;font-size:12.5px}
+  td.num{text-align:right;font-weight:700;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  tr.total td{background:#fff6ed;font-weight:800;color:var(--accent)}
+
+  /* checklist */
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .chk{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);
+    border-radius:11px;padding:9px 11px;font-size:13px;cursor:pointer}
+  .chk input{width:17px;height:17px;accent-color:var(--accent);flex:0 0 auto}
+  .chk.done span{text-decoration:line-through;color:var(--sub)}
+  .chk-group-title{grid-column:1/-1;font-weight:800;font-size:13px;color:var(--accent2);margin-top:6px}
+
+  .pill-row{display:flex;gap:7px;flex-wrap:wrap}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;
+    font-size:12.5px;font-weight:600;box-shadow:var(--shadow)}
+
+  .mission{background:linear-gradient(135deg,#fff,#fbf3ec);border:1px dashed var(--accent);
+    border-radius:14px;padding:13px 15px;margin-bottom:10px}
+  .mission b{color:var(--accent)}
+
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin:30px 0 10px;line-height:1.7}
+
+  /* toast */
+  #toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(40px);
+    background:#2c2420;color:#fff;padding:11px 18px;border-radius:999px;font-size:13px;font-weight:600;
+    opacity:0;transition:.25s;z-index:100;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none;max-width:90%}
+  #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .daypanel{display:none}
+  .daypanel.active{display:block;animation:fade .3s}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">COUPLE TRIP · GONGJU × JEONJU</div>
+  <h1>공주 · 전주<br>커플 여행 가이드</h1>
+  <div class="dates">📅 2026.07.27(월) – 07.30(목) · 3박4일</div>
+  <div class="chips">
+    <span class="chip">🚗 자가용</span>
+    <span class="chip">👫 20대 커플</span>
+    <span class="chip">🍜 맛집</span>
+    <span class="chip">🚲 자전거</span>
+    <span class="chip">♨️ 감성숙소</span>
+    <span class="chip">📷 데이트</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner" id="tabbar">
+    <div class="tab active" data-t="home">🏠 한눈에</div>
+    <div class="tab" data-t="d1">DAY1 공주</div>
+    <div class="tab" data-t="d2">DAY2 공주→전주</div>
+    <div class="tab" data-t="d3">DAY3 전주</div>
+    <div class="tab" data-t="d4">DAY4 전주→서울</div>
+    <div class="tab" data-t="eat">🍽 맛집</div>
+    <div class="tab" data-t="photo">📷 사진명소</div>
+    <div class="tab" data-t="stay">🏡 숙소</div>
+    <div class="tab" data-t="money">💰 예산·준비물</div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ HOME ============ -->
+<div class="daypanel active" id="home">
+
+  <img class="hero-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jeonju_Hanok_Maeul_%2838%29.JPG?width=820" alt="전주 한옥마을">
+
+  <div class="notice">
+    <b>⚠️ 출발 전 꼭 확인 (요일·날씨)</b>
+    <ul>
+      <li><b>7/27(월)</b> 국립공주박물관 <b>휴관</b> → 박물관은 7/28(화) 관람</li>
+      <li><b>7/28(화)</b> 산성시장 '광장순대(알밤순대)' <b>휴무</b> → 알밤순대는 7/27(월)에! / 물갈비는 화요일 휴무 없는 '화산물갈비'로</li>
+      <li><b>남부시장 야시장은 금·토만</b> 운영 → 이번 일정(화·수·목)엔 미운영. 야경은 한옥마을·전동성당·한벽터널로 대체</li>
+      <li><b>7월 말은 장마·폭염</b> 가능 → 우산/우비·휴대용 선풍기·자외선 차단 필수, 비 오면 Plan B(실내) 활용</li>
+    </ul>
+  </div>
+
+  <section>
+    <div class="sec-h"><div class="ic">🗺️</div><div><h2>전체 동선</h2><div class="desc">신촌 → 공주(1박) → 전주(2박) → 신촌</div></div></div>
+    <div class="route">
+      <div class="leg"><div class="dot">출</div><div><div class="t">신촌 출발</div><div class="s">7/27(월) 오전 11시</div><div class="drive">🚗 약 2시간 · 150km</div></div></div>
+      <div class="leg"><div class="dot">1</div><div><div class="t">공주 (백제 왕도 · 금강)</div><div class="s">산성시장·공산성·금강 자전거 → 미타스야 료칸 1박</div><div class="drive">🚗 료칸→공주시내 25분 · 공주→전주 1시간 20분</div></div></div>
+      <div class="leg"><div class="dot b">2</div><div><div class="t">전주 (한옥·먹거리)</div><div class="s">무령왕릉·박물관 보고 전주行 → 서신동 숙소 2박</div><div class="drive">🚗 전주→신촌 약 3시간 · 230km</div></div></div>
+      <div class="leg"><div class="dot b">도</div><div><div class="t">신촌 복귀</div><div class="s">7/30(목) 낮 12시 출발</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="ic">🧭</div><div><h2>네비 즐겨찾기</h2><div class="desc">탭하면 주소 복사 · 지도 열기</div></div></div>
+    <div id="navfav"></div>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="ic">⏱️</div><div><h2>구간별 차량 이동시간</h2></div></div>
+    <table id="drivetbl"></table>
+  </section>
+
+  <section>
+    <div class="sec-h"><div class="ic">💡</div><div><h2>여행 컨셉 & 팁</h2></div></div>
+    <div class="mission">"공주는 <b>쉼</b>, 전주는 <b>먹고 걷기</b>. 일정은 70%만 채우고 둘만의 시간을 우선!"</div>
+    <div class="pill-row">
+      <span class="pill">🌅 일몰 약 19:40 (7월 말)</span>
+      <span class="pill">🅿️ 한옥마을 주차 1일 최대 1.2만원</span>
+      <span class="pill">🚲 공주 자전거 무료 · 전주 1천원</span>
+      <span class="pill">💧 폭염주의 수분섭취</span>
+    </div>
+  </section>
+</div>
+
+<!-- ============ DAY PANELS ============ -->
+<div class="daypanel" id="d1"></div>
+<div class="daypanel" id="d2"></div>
+<div class="daypanel" id="d3"></div>
+<div class="daypanel" id="d4"></div>
+
+<!-- ============ EAT ============ -->
+<div class="daypanel" id="eat">
+  <section>
+    <div class="sec-h"><div class="ic">🍜</div><div><h2>맛집 리스트</h2><div class="desc">주소·영업시간·대표메뉴·주차</div></div></div>
+    <div id="eatlist"></div>
+  </section>
+  <section>
+    <div class="sec-h"><div class="ic">☕</div><div><h2>카페 & 디저트</h2></div></div>
+    <div id="cafelist"></div>
+  </section>
+</div>
+
+<!-- ============ PHOTO ============ -->
+<div class="daypanel" id="photo">
+  <section>
+    <div class="sec-h"><div class="ic">📷</div><div><h2>사진 찍기 좋은 곳</h2><div class="desc">입장료·주차·시간</div></div></div>
+    <div id="photolist"></div>
+  </section>
+</div>
+
+<!-- ============ STAY ============ -->
+<div class="daypanel" id="stay">
+  <section>
+    <div class="sec-h"><div class="ic">🏡</div><div><h2>숙소 & 주변 편의시설</h2><div class="desc">예약 완료 · 위치 기준 안내</div></div></div>
+    <div id="staylist"></div>
+  </section>
+</div>
+
+<!-- ============ MONEY ============ -->
+<div class="daypanel" id="money">
+  <section>
+    <div class="sec-h"><div class="ic">💰</div><div><h2>예상 경비 (2인 · 숙박 별도)</h2></div></div>
+    <table id="budgettbl"></table>
+    <p style="font-size:12px;color:var(--sub);margin-top:8px">※ 숙박은 예약 완료(별도). 중간 예산 기준이며 선택에 따라 달라질 수 있어요.</p>
+  </section>
+  <section>
+    <div class="sec-h"><div class="ic">🎒</div><div><h2>준비물 체크리스트</h2><div class="desc">탭해서 체크</div></div></div>
+    <div class="check-grid" id="checklist"></div>
+  </section>
+  <section>
+    <div class="sec-h"><div class="ic">🌧️</div><div><h2>비 올 때 Plan B</h2></div></div>
+    <div class="pill-row">
+      <span class="pill">🏛️ 국립공주박물관(무료)</span>
+      <span class="pill">🎬 전주 영화의거리</span>
+      <span class="pill">📚 전주 독립서점</span>
+      <span class="pill">☕ 한옥마을 카페투어</span>
+      <span class="pill">♨️ 료칸 스파에서 휴식</span>
+    </div>
+  </section>
+  <section>
+    <div class="sec-h"><div class="ic">💬</div><div><h2>커플 대화 카드</h2></div></div>
+    <div class="mission">서로에게 <b>가장 감사한 점</b>은?</div>
+    <div class="mission">5년 후 <b>우리는 어떤 모습</b>일까?</div>
+    <div class="mission">올해 <b>가장 기억에 남는 순간</b>은?</div>
+    <div class="mission">이번 여행에서 <b>가장 좋았던 곳</b>은? (마지막 날 밤에)</div>
+  </section>
+</div>
+
+</div><!-- /wrap -->
+
+<div id="toast"></div>
+
+<script>
+/* ---------- DATA ---------- */
+const naver = q => "https://map.naver.com/p/search/"+encodeURIComponent(q);
+const pics  = q => "https://www.google.com/search?tbm=isch&q="+encodeURIComponent(q);
+const wimg  = f => "https://commons.wikimedia.org/wiki/Special:FilePath/"+encodeURIComponent(f)+"?width=640";
+
+const PLACES = {
+  // GONGJU
+  sansung_mkt:{cat:"eat",n:"산성시장 (광장순대·청양분식)",blurb:"공주 대표 전통시장. 알밤순대·잔치국수로 든든한 첫 끼.",
+    hour:"광장순대 11:00–19:00 (브레이크 15–17) · 화요일 휴무",addr:"충남 공주시 산성시장1길 42",park:"시장 공영주차장(무료)",price:"모듬순대국밥 1만 · 모듬수육 2.3만",menu:["알밤순대","순대국밥","잔치국수"],tel:"041-852-1688",img:"Korean_food-Sundae-01.jpg"},
+  gongsanseong:{cat:"see",n:"공산성 (유네스코)",blurb:"백제 왕도의 2,660m 성곽길. 금강과 노을 조망 최고.",
+    hour:"09:00–18:00 (입장마감 17:00)",addr:"충남 공주시 웅진로 280",park:"금서루·공북루 주차장(무료)",price:"성인 3,000 · 청소년 2,000",menu:[],tel:"041-856-7700"},
+  geumgang_park:{cat:"see",n:"금강신관공원 자전거길",blurb:"금강변 평지 라이딩. 공공자전거 무료 대여(신분증 지참).",
+    hour:"대여 ~21:00 (하절기 연장, 대여 20:00까지)",addr:"충남 공주시 신관동 금강신관공원",park:"공원 주차장(무료)",price:"자전거 무료",menu:[],tel:"041-840-8588"},
+  muryeong:{cat:"see",n:"무령왕릉과 왕릉원",blurb:"주인이 밝혀진 유일한 백제 왕릉. 잔디 능선이 그림 같음.",
+    hour:"09:00–18:00 (매일)",addr:"충남 공주시 왕릉로 37",park:"무료 주차",price:"성인 1,500 · 청소년 1,000",menu:[],img:"Tomb_of_Muryeong_of_Baekje.JPG"},
+  museum:{cat:"see",n:"국립공주박물관",blurb:"무령왕릉 출토 유물 1만여 점. 왕릉원에서 도보 10분.",
+    hour:"09:00–18:00 · 월요일 휴관",addr:"충남 공주시 관광단지길 34",park:"무료 주차",price:"무료 관람",menu:[],tel:"041-850-6300"},
+  cafe_interview:{cat:"cafe",n:"커피인터뷰 금강점",blurb:"통창·테라스에서 금강 1열 뷰. 일몰 명당.",
+    hour:"매일 10:00–20:00",addr:"충남 공주시 우성면 평목길 159",park:"전용 주차",price:"음료 5천~",menu:["금강노을라떼"]},
+  cafe_naejae:{cat:"cafe",n:"내재 (內齋)",blurb:"탁 트인 금강 뷰 + 디저트. 조용한 분위기.",
+    hour:"매일 11:00–19:00",addr:"충남 공주시 창벽로 420",park:"주차 가능",price:"음료 6천~",menu:["수제 디저트"]},
+
+  // JEONJU
+  wangi:{cat:"eat",n:"왱이집 콩나물국밥",blurb:"40년 한 우물. 토렴식 남부시장 스타일 + 모주 한 잔.",
+    hour:"24시간",addr:"전주시 완산구 동문길 88",park:"무료 주차",price:"콩나물국밥 9천 · 모주 2천",menu:["콩나물국밥","모주","수란"],tel:"063-287-6980",img:"Kongnamul-gukbap.jpg"},
+  sambaek:{cat:"eat",n:"삼백집",blurb:"전주 콩나물국밥의 원조. 펄펄 끓여 내는 국물.",
+    hour:"06:00–21:00 (방문 전 확인)",addr:"전주시 완산구 전주객사2길",park:"인근 공영주차장",price:"콩나물국밥 9천대",menu:["콩나물국밥"],tel:"063-284-2227",img:"Kongnamul-gukbap.jpg"},
+  hwasan:{cat:"eat",n:"화산물갈비 전주본점",blurb:"연중무휴(화요일 OK). 소고기 물갈비가 시그니처.",
+    hour:"11:30–22:00 (주중 브레이크 15–17)",addr:"전주시 완산구 신촌4길 19",park:"인근 주차",price:"물갈비 1인 2만대",menu:["소 물갈비","당면사리"],tel:"063-223-2778",img:"Tteok-galbi_1.jpg"},
+  jeonju_mulgalbi:{cat:"eat",n:"전주물갈비",blurb:"콩나물+당면 올린 얼큰 돼지 물갈비. 현지 인기.",
+    hour:"17:00–21:30",addr:"전주시 완산구 평화로 146",park:"인근 주차",price:"물갈비 1인 1만대",menu:["돼지 물갈비"],tel:"063-237-3245",img:"Tteok-galbi_1.jpg"},
+  yetchon:{cat:"eat",n:"옛촌막걸리 삼천점",blurb:"막걸리 한 주전자에 한상 가득. 삼천동 막걸리골목.",
+    hour:"매일 14:00–24:00",addr:"전주시 완산구 거마산로 22",park:"골목 주차",price:"막걸리 한상 2.5만~",menu:["막걸리 한상","해물안주"],img:"Korean_rice_wine-Makkeolli.jpg"},
+  yongjin:{cat:"eat",n:"용진집 본점",blurb:"80년 전통 전주막걸리 원조. 안주가 계속 리필.",
+    hour:"15:00–22:50 (LO 22:05)",addr:"전주시 완산구 거마산로 14",park:"골목 주차",price:"막걸리 한상",menu:["전주막걸리","홍어"],img:"Korean_rice_wine-Makkeolli.jpg"},
+  hanbyeokjip:{cat:"eat",n:"한벽집 (오모가리탕)",blurb:"전주천 옆 민물매운탕. 한벽당·터널과 함께.",
+    hour:"점심·저녁 (방문 전 확인)",addr:"전주시 완산구 (교동 한벽로)",park:"자만벽화마을 공영주차장",price:"오모가리탕 중 3만대",menu:["오모가리탕","메기·쏘가리"]},
+  halmeoni:{cat:"cafe",n:"외할머니솜씨",blurb:"한옥마을 흑임자 팥빙수·전통 디저트.",
+    hour:"영업시간 방문 전 확인",addr:"전주시 완산구 오목대길 81-8",park:"한옥마을 공영주차장",price:"빙수 1만대",menu:["흑임자 팥빙수"],tel:"063-232-5804",img:"Korean_shaved_ice-Patbingsu-Nokcha_bingsu-Cherry_tomatoes.jpg"},
+  hongsi:{cat:"cafe",n:"홍시궁 (객리단길)",blurb:"객리단길 감성 카페. 전용 주차 보유.",
+    hour:"매일 11:00–20:00",addr:"전주시 완산구 전주객사1길 94-96",park:"전용 주차",price:"음료 5천~",menu:["시그니처 라떼"]},
+  anorenji:{cat:"cafe",n:"어노렌지 (서학동)",blurb:"서학동 예술마을의 한적한 골목 카페(평점 4.4).",
+    hour:"영업시간 방문 전 확인",addr:"전주시 완산구 서학3길 일대",park:"골목 주차",price:"음료 5천~",menu:["핸드드립"]},
+  pnb:{cat:"cafe",n:"PNB 풍년제과 본점",blurb:"1951년 개업, 초코파이 원조. 마지막 날 빵지순례.",
+    hour:"매일 08:00–22:00",addr:"전주시 완산구 팔달로 180",park:"인근 공영주차장",price:"초코파이 개당 2천대",menu:["수제 초코파이","센베","쇼콜라"],tel:"063-285-6666"},
+
+  // PHOTO
+  jeondong:{cat:"photo",n:"전동성당",blurb:"로마네스크 붉은 벽돌 성당. 한국에서 가장 아름다운 성당 중 하나. 야경 필수.",
+    hour:"외관 상시 (미사 중 내부 관람 제한)",addr:"전주시 완산구 태조로 51",park:"한옥마을 공영주차장",price:"무료",menu:[],tel:"063-284-3222",img:"Jeondong_Cathedral,_Jeonju.jpg"},
+  hanok:{cat:"photo",n:"전주 한옥마을",blurb:"700여 채 기와 물결. 경기전·오목대 포토존, 한복 인생샷.",
+    hour:"상시 (체험시설 별도)",addr:"전주시 완산구 태조로 일대",park:"공영주차장 30분 1천·1일 최대 1.2만",price:"무료(마을)",menu:[],img:"Jeonju_Hanok_Maeul_(38).JPG"},
+  jaman:{cat:"photo",n:"자만벽화마을",blurb:"40여 채 골목 벽화 + 옥상정원 시내 전망. 한옥마을 오목대와 연결.",
+    hour:"상시 개방·연중무휴",addr:"전주시 완산구 자만동1길 1-8",park:"한옥마을 공영주차장",price:"무료",menu:[],tel:"063-282-1330"},
+  hanbyeok:{cat:"photo",n:"한벽당 · 한벽굴(터널)",blurb:"90년 된 옛 철길 터널 + 전주천 누각. 출사객 성지, 아침 산책 추천.",
+    hour:"상시",addr:"전주시 완산구 기린대로 (교동)",park:"자만벽화마을 공영주차장",price:"무료",menu:[]},
+  seohak:{cat:"photo",n:"서학동 예술마을",blurb:"예술인 30여 명의 공방·갤러리 골목. 한옥마을보다 한적해 사진 천국.",
+    hour:"상시 (개별 공방 시간 상이)",addr:"전주시 완산구 서학3길",park:"골목 공영주차",price:"무료",menu:[]},
+  gaekridan:{cat:"photo",n:"객리단길",blurb:"전주 구도심 힙플레이스. 카페·소품숍·가맥, 낮밤 다 좋음.",
+    hour:"상점별 상이 (밤이 매력)",addr:"전주시 완산구 전주객사길 일대",park:"중앙·이화주차장 1일 1만",price:"무료(거리)",menu:[]},
+
+  // STAY
+  ryokan:{cat:"stay",n:"공주 미타스야 료칸 호텔 by아늑",blurb:"스위트 다다미룸(포레스트뷰). 프라이빗 스파·다도. 동학사·계룡산 자락의 조용한 숲속 료칸.",
+    hour:"체크인 7/27(월) 20:00 · 체크아웃 7/28(화) 12:00",addr:"충남 공주시 반포면 임금봉길 97",park:"숙소 주차",price:"예약 완료 (1박)",menu:["프라이빗 스파","다도 세트","무인 운영"]},
+  bnb:{cat:"stay",n:"전주 완산구 에어비앤비",blurb:"서신동 단독/다세대(다가가다201). 전주천·삼천 사이 전주 중심부 — 교통·쇼핑·먹거리 최고 접근성.",
+    hour:"7/28(화) ~ 7/30(목) · 2박",addr:"전주시 완산구 서신천변13길 10-1",park:"숙소/인근 주차",price:"예약 완료 (2박)",menu:["호스트: 다가가다"]},
+};
+
+const NAVFAV = ["sansung_mkt","gongsanseong","ryokan","muryeong","museum","bnb","hanok","jeondong","yetchon","hwasan"];
+
+const DRIVE = [
+  ["신촌 → 공주","약 2시간","150km · 천안논산고속도로"],
+  ["공주 료칸 ↔ 공주 시내(무령왕릉)","약 25분","반포면↔웅진동"],
+  ["공주 → 전주","약 1시간 20분","85km · 호남고속도로"],
+  ["전주 서신동 ↔ 한옥마을","약 15분","시내"],
+  ["전주 서신동 ↔ 삼천동 막걸리골목","약 7분","도보 가능 거리"],
+  ["전주 → 신촌","약 3시간","230km"],
+];
+
+const DAYS = {
+  d1:{title:"DAY 1 · 7/27(월) 공주",sub:"백제 왕도 + 금강 + 료칸",
+    items:[
+      ["11:00","신촌 출발 🚗","약 2시간 (150km). 휴게소에서 가볍게 간식"],
+      ["13:30","산성시장 점심","알밤순대·잔치국수 (광장순대 월요일 영업!)","sansung_mkt"],
+      ["15:00","공산성 산책","성곽길 걸으며 금강 조망 (입장 17시 마감 전)","gongsanseong"],
+      ["16:30","금강신관공원 자전거","금강변 해질녘 라이딩 (무료 대여)","geumgang_park"],
+      ["18:00","금강뷰 카페 일몰","커피인터뷰에서 노을라떼","cafe_interview"],
+      ["19:30","저녁 & 마트","공주 시내 또는 료칸 가는 길에 간식 장보기"],
+      ["20:00","미타스야 료칸 체크인 ♨️","프라이빗 스파·다도로 첫날 마무리","ryokan"],
+    ]},
+  d2:{title:"DAY 2 · 7/28(화) 공주 → 전주",sub:"백제 유물 보고 전주로",
+    items:[
+      ["08:30","료칸 조식·온천","느긋하게 숲뷰 즐기기"],
+      ["10:00","무령왕릉과 왕릉원","잔디 능선 산책 (료칸에서 25분)","muryeong"],
+      ["11:00","국립공주박물관","무령왕릉 유물 1만점 (화요일 OPEN)","museum"],
+      ["12:00","료칸 체크아웃 12:00 전 짐 정리","공주 시내 점심 (칼국수/국밥)"],
+      ["14:00","전주로 출발 🚗","약 1시간 20분 (85km)"],
+      ["15:30","전주 숙소 체크인","서신동 에어비앤비, 짐 풀기","bnb"],
+      ["16:30","객리단길 산책","카페·소품숍 구경 (홍시궁 추천)","gaekridan"],
+      ["18:30","저녁 · 물갈비","화산물갈비(연중무휴)","hwasan"],
+      ["20:30","한옥마을·전동성당 야경","전동성당 라이트업 인생샷","jeondong"],
+    ]},
+  d3:{title:"DAY 3 · 7/29(수) 전주",sub:"전주천 라이딩 + 막걸리 + 서학동",
+    items:[
+      ["08:30","콩나물국밥 해장","왱이집 (24시간·모주 한 잔)","wangi"],
+      ["10:00","전주천·삼천 자전거","숙소 앞 천변길로 바로! 공공자전거 1천원","gaekridan"],
+      ["14:00","막걸리 한상 🍶","삼천동 막걸리골목, 옛촌막걸리","yetchon"],
+      ["16:00","서학동 예술마을","한적한 골목 갤러리·공방 사진","seohak"],
+      ["17:30","서학동 감성 카페","어노렌지에서 한 박자 쉼","anorenji"],
+      ["19:00","한옥마을 저녁·거리음식","육전·꼬치 (야시장은 금·토만, 거리음식으로 대체)","hanok"],
+      ["20:30","한벽터널 야경 or 객리단길 가맥","자만벽화마을 옥상에서 야경","hanbyeok"],
+    ]},
+  d4:{title:"DAY 4 · 7/30(목) 전주 → 서울",sub:"브런치 후 복귀",
+    items:[
+      ["09:00","한벽당·한벽굴 아침 산책","전주천 아침 풍경, 사진 명소","hanbyeok"],
+      ["10:30","브런치·빵지순례","PNB 풍년제과 초코파이 + 카페","pnb"],
+      ["12:00","서울 출발 🚗","약 3시간 (230km). 안전 운전!"],
+    ]},
+};
+
+const BUDGET = [
+  ["⛽ 교통 (주유·통행료·주차)","12–15만"],
+  ["🍽 식비 (식사)","30–40만"],
+  ["☕ 카페·간식","5–7만"],
+  ["🎫 입장료·자전거","1.5–2만"],
+  ["🛍 기타 (기념품·잡비)","5–10만"],
+];
+const BUDGET_TOTAL = ["합계 (숙박 별도)","약 55–75만원"];
+
+const CHECK = {
+  "🚗 운전·차량":["운전면허증","하이패스 카드","차량용 충전기·거치대","워셔액·타이어 점검"],
+  "☀️ 여름·날씨":["선크림·선글라스","모자","우산/우비 (장마!)","휴대용 선풍기","모기약"],
+  "🔌 전자기기":["보조배터리","휴대폰 충전기","필름/인스탁스 카메라","미니 삼각대"],
+  "👫 커플·기타":["블루투스 스피커","질문 카드","상비약·물티슈","에코백","편한 운동화"],
+};
+
+/* ---------- RENDER ---------- */
+function catLabel(c){return {eat:"맛집",cafe:"카페",see:"관광",photo:"사진명소",stay:"숙소"}[c]||c}
+function card(key){
+  const p=PLACES[key]; if(!p) return "";
+  const menus=(p.menu&&p.menu.length)?`<div style="margin-top:6px">${p.menu.map(m=>`<span class="menu-tag">${m}</span>`).join("")}</div>`:"";
+  const row=(k,v)=>v?`<div><span class="k">${k}</span><span class="v">${v}</span></div>`:"";
+  const imgTag=p.img?`<img class="card-img" loading="lazy" src="${wimg(p.img)}" alt="${p.n}">`:"";
+  return `<div class="card">
+    ${imgTag}
+    <h3>${p.n} <span class="cat ${p.cat}">${catLabel(p.cat)}</span></h3>
+    <div class="blurb">${p.blurb}</div>
+    <div class="meta">
+      ${row("⏰ 시간",p.hour)}
+      ${row("📍 주소",p.addr)}
+      ${row("🅿️ 주차",p.park)}
+      ${row("💵 가격",p.price)}
+      ${p.tel?row("☎ 전화",p.tel):""}
+    </div>
+    ${menus}
+    <div class="btns">
+      <div class="btn copy" onclick="copyAddr('${p.addr}')">📋 주소복사</div>
+      <a class="btn map" href="${naver(p.n+' '+(p.addr.split(' ')[1]||''))}" target="_blank">🗺️ 지도·길찾기</a>
+      <a class="btn pic" href="${pics(p.n)}" target="_blank">📷 사진</a>
+    </div>
+  </div>`;
+}
+
+// nav favorites (compact)
+document.getElementById("navfav").innerHTML = NAVFAV.map(k=>{
+  const p=PLACES[k];
+  return `<div class="card" style="padding:11px 13px;margin-bottom:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+      <div style="min-width:0">
+        <div style="font-weight:800;font-size:14px">${p.n}</div>
+        <div style="font-size:12px;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.addr}</div>
+      </div>
+      <div style="display:flex;gap:6px;flex:0 0 auto">
+        <div class="btn copy" style="padding:7px 9px" onclick="copyAddr('${p.addr}')">📋</div>
+        <a class="btn map" style="padding:7px 9px" href="${naver(p.n)}" target="_blank">🗺️</a>
+      </div>
+    </div></div>`;
+}).join("");
+
+// drive table
+document.getElementById("drivetbl").innerHTML =
+  "<tr><th>구간</th><th>시간</th><th>비고</th></tr>"+
+  DRIVE.map(d=>`<tr><td>${d[0]}</td><td class="num">${d[1]}</td><td style="font-size:11.5px;color:var(--sub)">${d[2]}</td></tr>`).join("");
+
+// day panels
+for(const id in DAYS){
+  const d=DAYS[id];
+  const tl=d.items.map(it=>{
+    const detailCard = it[3]?card(it[3]):"";
+    return `<div class="tl-item">
+      <div class="time">${it[0]}</div>
+      <div class="node"></div>
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:800;font-size:14.5px">${it[1]}</div>
+        <div style="font-size:12.5px;color:var(--sub);margin-top:1px">${it[2]||""}</div>
+        ${detailCard?`<div style="margin-top:9px">${detailCard}</div>`:""}
+      </div>
+    </div>`;
+  }).join("");
+  document.getElementById(id).innerHTML=
+    `<section><div class="sec-h"><div class="ic">📌</div><div><h2>${d.title}</h2><div class="desc">${d.sub}</div></div></div>
+     <div class="tl">${tl}</div></section>`;
+}
+
+// eat / cafe / photo / stay lists
+const byCat = c => Object.keys(PLACES).filter(k=>PLACES[k].cat===c).map(card).join("");
+document.getElementById("eatlist").innerHTML = byCat("eat");
+document.getElementById("cafelist").innerHTML = byCat("cafe");
+document.getElementById("photolist").innerHTML = byCat("photo");
+document.getElementById("staylist").innerHTML = byCat("stay") + `
+  <div class="notice"><b>🏪 숙소별 주변 편의시설</b>
+  <ul>
+    <li><b>공주 료칸(반포면)</b> — 동학사·계룡산 자락 숲속. 편의점·식당은 동학사 입구 상가, 카페는 반포면 '커피인터뷰 동학사점·보니비·봉곡리커피'. 대형마트는 대전 유성 방면 차로 10–15분. <b>저녁거리는 공주 시내에서 미리 장보기 추천</b>.</li>
+    <li><b>전주 서신동 숙소</b> — 전주 중심부! 도보·차량 5–10분에 롯데백화점·이마트·홈플러스·CGV/롯데시네마, 편의점·약국·카페 다수. 전주천·삼천 산책로/자전거길 바로 옆, 삼천동 막걸리골목 7분.</li>
+  </ul></div>`;
+
+// budget
+document.getElementById("budgettbl").innerHTML =
+  "<tr><th>항목</th><th class='num'>예상(2인)</th></tr>"+
+  BUDGET.map(b=>`<tr><td>${b[0]}</td><td class="num">${b[1]}</td></tr>`).join("")+
+  `<tr class="total"><td>${BUDGET_TOTAL[0]}</td><td class="num">${BUDGET_TOTAL[1]}</td></tr>`;
+
+// checklist
+let chk="";
+for(const g in CHECK){
+  chk+=`<div class="chk-group-title">${g}</div>`;
+  chk+=CHECK[g].map(i=>`<label class="chk" onclick="this.classList.toggle('done',this.querySelector('input').checked)"><input type="checkbox"><span>${i}</span></label>`).join("");
+}
+document.getElementById("checklist").innerHTML=chk;
+
+/* ---------- INTERACTION ---------- */
+function copyAddr(a){
+  navigator.clipboard?.writeText(a).then(()=>toast("📋 복사됨 · "+a)).catch(()=>toast(a));
+}
+let tt;
+function toast(m){
+  const el=document.getElementById("toast");el.textContent=m;el.classList.add("show");
+  clearTimeout(tt);tt=setTimeout(()=>el.classList.remove("show"),2200);
+}
+const tabbar=document.getElementById("tabbar");
+tabbar.addEventListener("click",e=>{
+  const t=e.target.closest(".tab"); if(!t)return;
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  const id=t.dataset.t;
+  document.querySelectorAll(".daypanel").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+  // center tab
+  t.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+});
+</script>
+</body>
+</html>
